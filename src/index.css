@@ -1,0 +1,170 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Lavender Gradient Base — Slightly Darker for Contrast */
+    --gradient-base-start: 271 98% 76%;  /* Slightly deeper lavender */
+    --gradient-base-mid: 270 93% 68%;
+    --gradient-base-end: 268 88% 62%;
+    --gradient-base-deep: 266 91% 59%;
+
+    /* Glow + Accent Highlights */
+    --accent-blue: 199 89% 64%;
+    --accent-pink: 300 76% 72%;
+    --accent-white: 0 0% 100%;
+    
+    /* Text Contrast */
+    --text-strong: 0 0% 100%;
+    --text-dark: 234 20% 10%;
+    --text-outline: 0 0% 0%;
+
+    /* Shadows */
+    --shadow-strong: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 40px rgba(206, 162, 253, 0.8);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border transition-all duration-300;
+  }
+
+  body {
+    @apply font-['Space_Grotesk'] text-white;
+    background: linear-gradient(135deg, #CFA6FE, #B57DF9, #A76BF6);
+    background-size: 200% 200%;
+    animation: gradient-shift 12s ease-in-out infinite;
+    color: white;
+    font-weight: 500;
+    min-height: 100vh;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* TEXT VISIBILITY */
+  h1, h2, h3, h4, h5, h6 {
+    color: hsl(var(--text-strong));
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.45), 0 0 10px rgba(255,255,255,0.2);
+    font-weight: 800;
+  }
+
+  p, span, li {
+    color: hsl(var(--text-strong));
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+    line-height: 1.7;
+  }
+
+  /* GLASS CARDS */
+  .glass {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: var(--shadow-strong), var(--shadow-glow);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .glass:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 0 60px rgba(206, 162, 253, 0.9);
+  }
+
+  /* BUTTONS */
+  button, .btn {
+    @apply font-semibold px-6 py-3 rounded-xl uppercase;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    box-shadow: 0 0 15px rgba(206,162,253,0.4);
+    transition: all 0.3s ease-in-out;
+  }
+
+  button:hover, .btn:hover {
+    background: linear-gradient(90deg, #A46CF5, #E879F9);
+    box-shadow: 0 0 40px rgba(206,162,253,0.9);
+    transform: scale(1.05);
+  }
+
+  /* ICONS */
+  .icon-hover {
+    transition: all 0.25s ease;
+  }
+
+  .icon-hover:hover {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 12px rgba(206,162,253,0.8));
+  }
+
+  /* LINKS */
+  .link-animate {
+    position: relative;
+    color: hsl(var(--text-strong));
+  }
+
+  .link-animate::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #fff, #E879F9);
+    transition: width 0.3s ease;
+  }
+
+  .link-animate:hover::after {
+    width: 100%;
+  }
+
+  .link-animate:hover {
+    text-shadow: 0 0 15px rgba(255,255,255,0.9);
+  }
+
+  /* ANIMATED BLOBS */
+  .ambient-blob {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.4;
+    pointer-events: none;
+    animation: float-blob 20s ease-in-out infinite;
+  }
+
+  @keyframes float-blob {
+    0%, 100% { transform: translate(0,0) scale(1); }
+    50% { transform: translate(40px, -40px) scale(1.1); }
+  }
+
+  /* TEXT STYLES */
+  .gradient-text {
+    background: linear-gradient(135deg, #fff, #E879F9, #A46CF5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+    font-weight: 900;
+  }
+
+  /* CARD FLOATING EFFECT */
+  .card-hover {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 0 30px rgba(206, 162, 253, 0.6);
+  }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(#B57DF9, #A46CF5);
+    border-radius: 20px;
+  }
+}
