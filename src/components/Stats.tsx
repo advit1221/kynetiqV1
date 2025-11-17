@@ -1,52 +1,77 @@
 import { motion } from "framer-motion";
-import { Users, MapPin, Calendar, Award } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Stats = () => {
-  const stats = [
-    { icon: Users, value: "2,500+", label: "Active Runners", color: "#FF6B35" },
-    { icon: MapPin, value: "50+", label: "Run Routes", color: "#4FC3F7" },
-    { icon: Calendar, value: "120+", label: "Monthly Events", color: "#6EE7B7" },
-    { icon: Award, value: "10K+", label: "Kilometers Covered", color: "#E879F9" },
+  const faqs = [
+    {
+      q: "What is Kynetiq?",
+      short: "Dwarka’s growing community of runners and movers.",
+      detail:
+        "Kynetiq is a Dwarka-based run club that brings together people who love to move, sweat, and connect. We organize community runs and social workouts that go beyond fitness — it’s about shared energy and belonging.",
+    },
+    {
+      q: "When do the runs happen?",
+      short: "We move together every weekend.",
+      detail:
+        "Community runs are hosted every weekend in and around Dwarka. Each week’s route and distance are shared in advance, so you can plan your weekend motion and join the crew.",
+    },
+    {
+      q: "What happens at these runs?",
+      short: "Simple — people, energy, and movement.",
+      detail:
+        "A bunch of runners gather, warm up, and take off together on a pre-assigned route — tracking progress, cheering each other, and sharing post-run vibes. It’s free, fun, and open to everyone.",
+    },
+    {
+      q: "What should I expect?",
+      short: "Just bring your energy.",
+      detail:
+        "No fancy gear or pace required — just show up with your mind and body ready to move. Whether you’re new or seasoned, you’ll find your rhythm here.",
+    },
   ];
-  
+
   return (
-    <section className="py-24 relative">
-      <div className="container mx-auto px-6">
+    <section className="py-28 bg-gradient-to-br from-[#0D0C1D] via-[#1B183A] to-[#2A2347] text-white">
+      <div className="container mx-auto px-6 max-w-4xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-5xl md:text-6xl font-extrabold text-center mb-16 gradient-text"
+          transition={{ duration: 0.5 }}
+          className="text-5xl font-bold mb-12 text-center bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] bg-clip-text text-transparent"
         >
-          The Momentum So Far.
+          Know the Motion
         </motion.h2>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-                className="glass p-8 rounded-3xl text-center glow-hover border-2 border-white/20"
-              >
-                <div 
-                  className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#E879F9] to-[#C084FC] mb-6 icon-hover"
-                  style={{ boxShadow: `0 0 30px ${stat.color}40` }}
-                >
-                  <Icon className="w-8 h-8 text-white drop-shadow-lg" />
-                </div>
-                <h3 className="text-4xl font-extrabold text-white mb-2 text-visible">{stat.value}</h3>
-                <p className="text-white text-sm uppercase tracking-wider font-semibold">{stat.label}</p>
-              </motion.div>
-            );
-          })}
+
+        <div className="space-y-8">
+          {faqs.map((faq, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              className="glass p-8 rounded-3xl border border-white/10 backdrop-blur-xl"
+            >
+              <h3 className="text-2xl font-semibold mb-2 bg-gradient-to-r from-[#E879F9] to-[#C084FC] text-transparent bg-clip-text">
+                {faq.q}
+              </h3>
+              <p className="text-white/90 mb-1">{faq.short}</p>
+              <p className="text-white/70 text-base leading-relaxed">{faq.detail}</p>
+            </motion.div>
+          ))}
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="text-center mt-16"
+        >
+          <Link
+            to="/community"
+            className="text-lg font-medium bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] text-transparent bg-clip-text hover:opacity-80 transition-all"
+          >
+            → See upcoming community runs
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,55 +1,55 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const CTA = () => {
   return (
-    <section className="py-32 relative bg-gradient-to-br from-[#A46CF5] via-[#B984F8] to-[#CEA2FD]">
-      <div className="container mx-auto px-6 text-center">
-        <motion.div
+    <section className="relative overflow-hidden py-24 bg-gradient-to-br from-[#0D0C1D] via-[#1B183A] to-[#2A2347] text-white">
+      {/* Ambient background glow */}
+      <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_center,rgba(192,132,252,0.3),transparent_70%)]"></div>
+
+      <div className="container relative z-10 mx-auto px-6 text-center max-w-3xl">
+        {/* Title */}
+        <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto"
+          transition={{ duration: 0.6 }}
+          className="text-5xl font-extrabold mb-6 bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] bg-clip-text text-transparent"
         >
-          <h2 className="text-6xl md:text-7xl font-extrabold mb-6 gradient-text leading-tight">
-            Made in Dwarka.
-            <br />
-            Moving the Nation.
-          </h2>
-          
-          <p className="text-xl md:text-2xl text-white mb-12 font-bold text-visible">
-            Your story flows through lavender light.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 bg-white text-charcoal rounded-full font-extrabold text-lg hover:bg-white/95 transition-all flex items-center gap-2 group shadow-2xl hover:shadow-[0_8px_40px_rgba(0,0,0,0.3)] btn-pulse"
-            >
-              Join the Club
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-            </motion.button>
-            
-            <motion.button
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-10 py-5 glass rounded-full font-bold text-lg text-white glow-hover border-2 border-white/40"
-            >
-              Discover Events
-            </motion.button>
-          </div>
-          
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-12 text-white text-sm font-bold tracking-wide"
+          Ready to move with the community?
+        </motion.h2>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-white/80 text-lg mb-12 leading-relaxed"
+        >
+          Join hundreds of runners across Dwarka every weekend — the Motion never stops.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.3 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-6"
+        >
+          {/* Primary CTA */}
+          <Link
+            to="/signup"
+            className="px-10 py-4 rounded-2xl font-semibold shadow-lg shadow-[#C084FC]/40 transition-transform duration-300 bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] hover:scale-105"
           >
-            Born in Dwarka. Moving the Nation.
-          </motion.p>
+            Sign up for Kynetiq
+          </Link>
+
+          {/* Secondary CTA */}
+          <Link
+            to="/upcoming-runs"
+            className="px-10 py-4 rounded-2xl font-semibold border border-white/20 text-white/90 hover:text-white transition-all hover:bg-white/10 hover:scale-105 backdrop-blur-md"
+          >
+            View Upcoming Runs
+          </Link>
         </motion.div>
       </div>
     </section>

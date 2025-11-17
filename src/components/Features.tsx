@@ -1,84 +1,64 @@
 import { motion } from "framer-motion";
-import { Activity, Users2, Trophy, Target, Heart, Calendar } from "lucide-react";
+import { Sparkles, Users, MapPin, Zap } from "lucide-react";
+
+const features = [
+  {
+    icon: <Users className="w-8 h-8 text-[#E879F9]" />,
+    title: "Built on community",
+    simple: "Kynetiq is more than just a run club.",
+    vibe: "It’s a tribe where every step, laugh, and story adds to the motion.",
+  },
+  {
+    icon: <MapPin className="w-8 h-8 text-[#C084FC]" />,
+    title: "Runs across Dwarka",
+    simple: "We run every weekend with pre-planned routes.",
+    vibe: "Show up, stretch out, and follow the motion — no gear, just good energy.",
+  },
+  {
+    icon: <Zap className="w-8 h-8 text-[#FF8C5C]" />,
+    title: "Why Kynetiq?",
+    simple: "Because running feels better together.",
+    vibe: "Push limits, meet runners, share vibes — Kynetiq keeps you moving.",
+  },
+  {
+    icon: <Sparkles className="w-8 h-8 text-[#E879F9]" />,
+    title: "What to expect",
+    simple: "A bunch of runners, a route, and raw energy.",
+    vibe: "No pressure, no rules — just motion, community, and shared purpose.",
+  },
+];
 
 const Features = () => {
-  const features = [
-    {
-      icon: Activity,
-      title: "Track your rhythm.",
-      description: "Every step, every pace, every moment — captured beautifully.",
-    },
-    {
-      icon: Users2,
-      title: "Connect with circles.",
-      description: "Find your tribe. Run with people who share your energy.",
-    },
-    {
-      icon: Trophy,
-      title: "Earn your identity.",
-      description: "Build your runner profile. Show your journey, not just your stats.",
-    },
-    {
-      icon: Target,
-      title: "Set meaningful goals.",
-      description: "From first 5K to ultra marathons — growth at your pace.",
-    },
-    {
-      icon: Heart,
-      title: "Move with mindfulness.",
-      description: "Running isn't just physical. It's mental, emotional, poetic.",
-    },
-    {
-      icon: Calendar,
-      title: "Join events that matter.",
-      description: "From sunrise runs to night trails — experience motion together.",
-    },
-  ];
-  
   return (
-    <section className="py-24 relative">
-      <div className="container mx-auto px-6">
+    <section className="py-24 bg-gradient-to-br from-[#0D0C1D] via-[#1B183A] to-[#2A2347] text-white relative overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10 max-w-6xl">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-5xl md:text-6xl font-extrabold text-center mb-6 gradient-text"
+          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] bg-clip-text text-transparent"
         >
-          Redefine Motion.
+          Why and What Kynetiq
         </motion.h2>
-        
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-xl text-white text-center mb-16 max-w-2xl mx-auto font-bold text-visible"
-        >
-          More than a run club. A culture. A movement. A kinetic community.
-        </motion.p>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => {
-            const Icon = feature.icon;
-            return (
-              <motion.div
-                key={feature.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -8 }}
-                className="glass p-8 rounded-3xl glow-hover border-2 border-[#C084FC]/40"
-              >
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-[#C084FC] to-[#E879F9] mb-6 icon-hover shadow-[0_0_30px_rgba(192,132,252,0.5)]">
-                  <Icon className="w-8 h-8 text-white drop-shadow-lg" />
-                </div>
-                <h3 className="text-2xl font-extrabold text-white mb-3 text-visible">{feature.title}</h3>
-                <p className="text-white font-medium">{feature.description}</p>
-              </motion.div>
-            );
-          })}
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-10">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.2 }}
+              className="glass p-8 rounded-3xl border border-white/10 backdrop-blur-xl hover:scale-[1.02] transition-transform"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                {feature.icon}
+                <h3 className="text-2xl font-semibold">{feature.title}</h3>
+              </div>
+              <p className="text-white/80 text-base mb-2">{feature.simple}</p>
+              <p className="text-white/60 italic">{feature.vibe}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
