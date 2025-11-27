@@ -11,7 +11,6 @@ import NotFound from "./pages/NotFound";
 import Join from "./pages/Join";
 import UpcomingRuns from "./pages/UpcomingRuns";
 
-
 const queryClient = new QueryClient();
 
 const App = () => {
@@ -26,7 +25,7 @@ const App = () => {
             <Route path="/join" element={<Join />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/community" element={<Community />} />
-            <Route path="/upcoming" element={<UpcomingRuns />} />
+            <Route path="/upcoming-runs" element={<UpcomingRuns />} />
 
             {/* Always keep catch-all at bottom */}
             <Route path="*" element={<NotFound />} />
