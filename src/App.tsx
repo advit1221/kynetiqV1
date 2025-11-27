@@ -9,6 +9,8 @@ import Profile from "./pages/Profile";
 import Community from "./pages/Community";
 import NotFound from "./pages/NotFound";
 import Join from "./pages/Join";
+import UpcomingRuns from "./pages/UpcomingRuns";
+
 
 const queryClient = new QueryClient();
 
