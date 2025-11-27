@@ -1,12 +1,8 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom"; // Add this
 import { Link } from "react-router-dom";
 
-
 const Hero = () => {
-  const navigate = useNavigate(); // Add this
-
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-gradient-to-br from-[#0D0C1D] via-[#1B183A] to-[#2A2347] text-white">
       {/* Animated Gradient Blobs */}
@@ -51,7 +47,7 @@ const Hero = () => {
           Join a growing community of runners every weekend in Dwarka.
         </motion.p>
 
-        {/* Primary CTA (Centered) */}
+        {/* CTA Button */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -59,19 +55,12 @@ const Hero = () => {
           className="flex justify-center"
         >
           <Link
-  to="/upcoming-runs"
-  className="flex items-center gap-3 px-10 py-5 rounded-2xl font-semibold text-lg bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] shadow-lg shadow-[#C084FC]/40 hover:scale-105 transition-transform"
->
-  <ArrowRight className="w-5 h-5" />
-  Find Upcoming Runs Near You
-</Link>
-
+            to="/upcoming"
             className="flex items-center gap-3 px-10 py-5 rounded-2xl font-semibold text-lg bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] shadow-lg shadow-[#C084FC]/40 hover:scale-105 transition-transform"
-            onClick={() => navigate("/join")}
           >
             <ArrowRight className="w-5 h-5" />
             Find Upcoming Runs Near You
-          </button>
+          </Link>
         </motion.div>
       </motion.div>
     </section>
