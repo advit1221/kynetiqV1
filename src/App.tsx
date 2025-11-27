@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import Join from "./pages/Join";
 import UpcomingRuns from "./pages/UpcomingRuns";
 
+
 const queryClient = new QueryClient();
 
 const App = () => {
