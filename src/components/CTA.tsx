@@ -37,7 +37,7 @@ const CTA = () => {
         >
           {/* Primary CTA */}
           <Link
-            to="/signup"
+            to="/join"
             className="px-10 py-4 rounded-2xl font-semibold shadow-lg shadow-[#C084FC]/40 transition-transform duration-300 bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] hover:scale-105"
           >
             Sign up for Kynetiq
@@ -45,7 +45,7 @@ const CTA = () => {
 
           {/* Secondary CTA */}
           <Link
-            to="/upcoming-runs"
+            to="/join"
             className="px-10 py-4 rounded-2xl font-semibold border border-white/20 text-white/90 hover:text-white transition-all hover:bg-white/10 hover:scale-105 backdrop-blur-md"
           >
             View Upcoming Runs

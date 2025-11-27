@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useNavigate } from "react-router-dom"; // Add this
 
 const Hero = () => {
+  const navigate = useNavigate(); // Add this
+
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-6 overflow-hidden bg-gradient-to-br from-[#0D0C1D] via-[#1B183A] to-[#2A2347] text-white">
       {/* Animated Gradient Blobs */}
@@ -53,7 +56,10 @@ const Hero = () => {
           transition={{ delay: 0.5 }}
           className="flex justify-center"
         >
-          <button className="flex items-center gap-3 px-10 py-5 rounded-2xl font-semibold text-lg bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] shadow-lg shadow-[#C084FC]/40 hover:scale-105 transition-transform">
+          <button
+            className="flex items-center gap-3 px-10 py-5 rounded-2xl font-semibold text-lg bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] shadow-lg shadow-[#C084FC]/40 hover:scale-105 transition-transform"
+            onClick={() => navigate("/join")}
+          >
             <ArrowRight className="w-5 h-5" />
             Find Upcoming Runs Near You
           </button>
