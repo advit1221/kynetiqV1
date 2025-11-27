@@ -4,12 +4,12 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Index from "./pages/Index";
-import Profile from "./pages/Profile";
-import Community from "./pages/Community";
-import NotFound from "./pages/NotFound";
-import Join from "./pages/Join";
-import UpcomingRuns from "./pages/UpcomingRuns";
+import Index from "./pages/Index.tsx";
+import Profile from "./pages/Profile.tsx";
+import Community from "./pages/Community.tsx";
+import NotFound from "./pages/NotFound.tsx";
+import Join from "./pages/Join.tsx";
+import UpcomingRuns from "./pages/UpcomingRuns.tsx";
 
 const queryClient = new QueryClient();
 
@@ -27,7 +27,6 @@ const App = () => {
             <Route path="/community" element={<Community />} />
             <Route path="/upcoming-runs" element={<UpcomingRuns />} />
 
-            {/* Always keep catch-all at bottom */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
