@@ -4,14 +4,15 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "./", // Use relative paths for Vercel deployment
+  base: "./", // Important: relative path for Vercel deployment
   build: {
     outDir: "dist",
     emptyOutDir: true,
+    sourcemap: false
   },
   server: {
     host: true,
-    port: 5173,
+    port: 5173
   },
   plugins: [
     react(),
