@@ -4,9 +4,10 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "./", // Important: relative path for Vercel deployment
+  root: "src",             // Look for index.html inside src/
+  base: "./",              // Relative paths for assets
   build: {
-    outDir: "dist",
+    outDir: "../dist",     // Output build to root/dist
     emptyOutDir: true,
     sourcemap: false
   },
@@ -16,11 +17,11 @@ export default defineConfig(({ mode }) => ({
   },
   plugins: [
     react(),
-    mode === "development" && componentTagger(),
+    mode === "development" && componentTagger()
   ].filter(Boolean),
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "./src"),
-    },
-  },
+      "@": path.resolve(__dirname, "./src")
+    }
+  }
 }));
