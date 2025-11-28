@@ -4,14 +4,14 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 export default defineConfig(({ mode }) => ({
-  base: "/", // ✅ keeps paths correct for all routes
+  base: "/", // ENSURES correct asset paths in production
   build: {
-    outDir: "dist", // ✅ required by Vercel
+    outDir: "dist",
+    emptyOutDir: true
   },
   server: {
-    host: "::",
-    port: 8080,
-    historyApiFallback: true, // ✅ ensures refresh works locally
+    host: true,
+    port: 5173
   },
   plugins: [
     react(),
