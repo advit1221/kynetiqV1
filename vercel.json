@@ -1,0 +1,20 @@
+{
+  "rewrites": [
+    {
+      "source": "/join",
+      "destination": "/"
+    },
+    {
+      "source": "/upcoming-runs",
+      "destination": "/"
+    },
+    {
+      "source": "/profile",
+      "destination": "/"
+    },
+    {
+      "source": "/community",
+      "destination": "/"
+    }
+  ]
+}
