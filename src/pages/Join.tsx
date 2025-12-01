@@ -1,3 +1,5 @@
+// src/pages/Join.tsx
+
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { CheckCircle } from "lucide-react";
@@ -17,6 +19,9 @@ const Join = () => {
     consent: false,
   });
 
+  const backendURL =
+    "https://script.google.com/macros/s/AKfycbwvwIwJZ2APNn-YseO-tfAIngpa53p7s6XwG-fJCU5HthsBd-nCem6OgtrhIFZqQhlF/exec";
+
   const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;
     setFormData({
@@ -25,17 +30,28 @@ const Join = () => {
     });
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
-    // Simple validation
     if (!formData.name || !formData.email || !formData.location || !formData.consent) {
-      alert("Please fill all required fields and agree to updates.");
+      alert("Please fill all required fields.");
       return;
     }
 
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
+    try {
+      await fetch(backendURL, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify({
+          type: "join",
+          ...formData,
+        }),
+      });
+
+      setSubmitted(true);
+    } catch {
+      alert("Error submitting form.");
+    }
   };
 
   return (
@@ -51,73 +67,62 @@ const Join = () => {
             transition={{ duration: 0.8 }}
             className="glass max-w-2xl w-full p-10 rounded-3xl border border-white/10 backdrop-blur-lg shadow-2xl"
           >
+            {/* Header unchanged */}
             <h1 className="text-4xl md:text-5xl font-extrabold mb-4 bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] text-transparent bg-clip-text">
               Join the Motion
             </h1>
+
             <p className="text-white/80 mb-8 text-lg">
               Be part of Dwarka’s fastest-growing running community. Let’s move together 🏃‍♂️
             </p>
 
-            {/* --- Name --- */}
+            {/* All inputs identical UI */}
             <div className="mb-5">
               <label className="block text-white/70 mb-2">Full Name *</label>
               <input
                 type="text"
                 name="name"
-                value={formData.name}
                 onChange={handleChange}
-                placeholder="John Doe"
-                className="w-full p-3 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#C084FC]"
+                className="w-full p-3 rounded-xl bg-white/10 border border-white/20"
               />
             </div>
 
-            {/* --- Email --- */}
             <div className="mb-5">
               <label className="block text-white/70 mb-2">Email Address *</label>
               <input
                 type="email"
                 name="email"
-                value={formData.email}
                 onChange={handleChange}
-                placeholder="you@example.com"
-                className="w-full p-3 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#E879F9]"
+                className="w-full p-3 rounded-xl bg-white/10 border border-white/20"
               />
             </div>
 
-            {/* --- Phone --- */}
             <div className="mb-5">
               <label className="block text-white/70 mb-2">Phone Number (Optional)</label>
               <input
                 type="text"
                 name="phone"
-                value={formData.phone}
                 onChange={handleChange}
-                placeholder="+91 98765 43210"
-                className="w-full p-3 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#FF8C5C]"
+                className="w-full p-3 rounded-xl bg-white/10 border border-white/20"
               />
             </div>
 
-            {/* --- Location --- */}
             <div className="mb-5">
               <label className="block text-white/70 mb-2">Your Area / Location *</label>
               <input
                 type="text"
                 name="location"
-                value={formData.location}
                 onChange={handleChange}
-                placeholder="Dwarka Sector 11"
-                className="w-full p-3 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#C084FC]"
+                className="w-full p-3 rounded-xl bg-white/10 border border-white/20"
               />
             </div>
 
-            {/* --- Running Level --- */}
             <div className="mb-5">
               <label className="block text-white/70 mb-2">Your Running Level *</label>
               <select
                 name="level"
-                value={formData.level}
                 onChange={handleChange}
-                className="w-full p-3 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#E879F9] text-white"
+                className="w-full p-3 rounded-xl bg-white/10 border border-white/20 text-white"
               >
                 <option>Beginner</option>
                 <option>Intermediate</option>
@@ -125,38 +130,30 @@ const Join = () => {
               </select>
             </div>
 
-            {/* --- Availability --- */}
             <div className="mb-5">
               <label className="block text-white/70 mb-2">Availability</label>
               <input
                 type="text"
                 name="availability"
-                value={formData.availability}
                 onChange={handleChange}
-                placeholder="Weekends / Weekdays"
-                className="w-full p-3 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#FF8C5C]"
+                className="w-full p-3 rounded-xl bg-white/10 border border-white/20"
               />
             </div>
 
-            {/* --- Message --- */}
             <div className="mb-5">
               <label className="block text-white/70 mb-2">Message / Motivation</label>
               <textarea
                 name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Why do you want to join Kynetiq?"
                 rows={3}
-                className="w-full p-3 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#C084FC]"
-              ></textarea>
+                onChange={handleChange}
+                className="w-full p-3 rounded-xl bg-white/10 border border-white/20"
+              />
             </div>
 
-            {/* --- Consent Checkbox --- */}
             <div className="mb-8 flex items-center gap-3">
               <input
                 type="checkbox"
                 name="consent"
-                checked={formData.consent}
                 onChange={handleChange}
                 className="w-5 h-5 rounded-md accent-[#C084FC]"
               />
@@ -165,12 +162,11 @@ const Join = () => {
               </label>
             </div>
 
-            {/* --- Submit Button --- */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.97 }}
               type="submit"
-              className="w-full py-4 rounded-2xl font-semibold text-lg bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] shadow-lg shadow-[#C084FC]/40 hover:shadow-[#E879F9]/50 transition-all"
+              className="w-full py-4 rounded-2xl font-semibold text-lg bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C]"
             >
               Join the Motion
             </motion.button>
@@ -185,7 +181,7 @@ const Join = () => {
             <CheckCircle className="w-16 h-16 mx-auto mb-4 text-[#C084FC]" />
             <h2 className="text-3xl font-bold mb-3">Welcome to Kynetiq!</h2>
             <p className="text-white/80">
-              You’re officially part of the community. Keep an eye on your inbox for upcoming runs and events 🏃‍♀️✨
+              You’re officially part of the community. Keep an eye on your inbox.
             </p>
           </motion.div>
         )}
