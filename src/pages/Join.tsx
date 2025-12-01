@@ -20,7 +20,7 @@ const Join = () => {
   });
 
   const backendURL =
-    "https://script.google.com/macros/s/AKfycbwvwIwJZ2APNn-YseO-tfAIngpa53p7s6XwG-fJCU5HthsBd-nCem6OgtrhIFZqQhlF/exec";
+    "https://script.google.com/macros/s/AKfycbypUDvF_dZA8Dj2Nh2bsfcVCI8-ehT36zDAN3uc3Mu-mtgNZpsegdNZY3lV8jqChvwm/exec";
 
   const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;

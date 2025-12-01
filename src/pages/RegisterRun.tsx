@@ -12,7 +12,7 @@ const RegisterRun = () => {
 
   // YOUR LIVE GOOGLE SCRIPT BACKEND
   const backendURL =
-    "https://script.google.com/macros/s/AKfycbwvwIwJZ2APNn-YseO-tfAIngpa53p7s6XwG-fJCU5HthsBd-nCem6OgtrhIFZqQhlF/exec";
+    "https://script.google.com/macros/s/AKfycbypUDvF_dZA8Dj2Nh2bsfcVCI8-ehT36zDAN3uc3Mu-mtgNZpsegdNZY3lV8jqChvwm/exec";
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
