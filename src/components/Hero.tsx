@@ -47,7 +47,7 @@ const Hero = () => {
           Join a growing community of runners every weekend in Dwarka.
         </motion.p>
 
-        {/* CTA Button */}
+        {/* Primary CTA (Centered) */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ const Hero = () => {
           className="flex justify-center"
         >
           <Link
-            to="/upcoming"
+            to="/upcoming-runs"
             className="flex items-center gap-3 px-10 py-5 rounded-2xl font-semibold text-lg bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] shadow-lg shadow-[#C084FC]/40 hover:scale-105 transition-transform"
           >
             <ArrowRight className="w-5 h-5" />

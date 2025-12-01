@@ -105,7 +105,7 @@ const Join = () => {
                 name="location"
                 value={formData.location}
                 onChange={handleChange}
-                placeholder="Dwarka Sector 12"
+                placeholder="Dwarka Sector 11"
                 className="w-full p-3 rounded-xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#C084FC]"
               />
             </div>

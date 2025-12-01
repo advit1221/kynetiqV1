@@ -1,109 +1,100 @@
+// src/components/Navigation.tsx
 import { Link, useLocation } from "react-router-dom";
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { motion } from "framer-motion";
 
 const Navigation = () => {
   const location = useLocation();
+
   const links = [
     { name: "Home", path: "/" },
-    { name: "Profile", path: "/profile" },
-    { name: "Community", path: "/community" },
+    { name: "Upcoming Runs", path: "/upcoming-runs" },
+    { name: "About the Founder", path: "/founder" },
   ];
-
-  // --- Magnetic hover effect setup ---
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-50, 50], [10, -10]);
-  const rotateY = useTransform(x, [-50, 50], [-10, 10]);
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const rect = buttonRef.current?.getBoundingClientRect();
-    if (!rect) return;
-    const xPos = e.clientX - rect.left - rect.width / 2;
-    const yPos = e.clientY - rect.top - rect.height / 2;
-    x.set(xPos);
-    y.set(yPos);
-  };
-
-  const handleMouseLeave = () => {
-    animate(x, 0);
-    animate(y, 0);
-  };
-
-  // --- Subtle pulsing glow animation loop ---
-  useEffect(() => {
-    const glow = buttonRef.current;
-    if (!glow) return;
-    glow.animate(
-      [
-        { boxShadow: "0 0 20px rgba(224,121,249,0.4)" },
-        { boxShadow: "0 0 40px rgba(255,140,92,0.8)" },
-        { boxShadow: "0 0 20px rgba(224,121,249,0.4)" },
-      ],
-      { duration: 4000, iterations: Infinity }
-    );
-  }, []);
 
   return (
     <motion.nav
-      initial={{ y: -20, opacity: 0 }}
+      initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="fixed top-0 left-0 right-0 z-50 glass-strong border-b border-white/10"
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 
+                 bg-gradient-to-b from-black/60 via-black/30 to-transparent 
+                 backdrop-blur-2xl"
     >
-      <div className="container mx-auto px-6 py-4">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link
-            to="/"
-            className="text-2xl font-bold gradient-text hover:opacity-80 transition-opacity"
-          >
-            Kynetiq
+      <div className="container mx-auto px-6 py-3">
+        <div className="flex items-center justify-between gap-4">
+
+          {/* LOGO (new, replaces text “Kynetiq”) */}
+          <Link to="/" className="relative flex items-center">
+            <img
+              src="/kynetiq-logo.png"
+              alt="Kynetiq Logo"
+              className="w-20 md:w-24 
+                         drop-shadow-[0_0_25px_rgba(255,255,255,0.35)]
+                         hover:scale-105 transition-all duration-300"
+            />
+            <span className="absolute left-0 right-0 -bottom-1 h-px 
+              bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-60" />
           </Link>
 
-          {/* Navigation Links */}
-          <div className="flex items-center gap-8">
-            {links.map((link) => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="relative text-white font-semibold link-animate"
-              >
-                {link.name}
-                {location.pathname === link.path && (
-                  <motion.div
-                    layoutId="navbar-indicator"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#C084FC] to-white shadow-[0_0_10px_rgba(192,132,252,0.6)]"
-                  />
-                )}
-              </Link>
-            ))}
+          <div className="flex items-center gap-6">
 
-            {/* ✨ Kinetic Join Button */}
-            <motion.button
-              ref={buttonRef}
-              style={{ x, y, rotateX, rotateY }}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.97 }}
-              className="relative overflow-hidden px-6 py-2 rounded-full font-bold text-lg 
-                         bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] 
-                         text-white transition-all duration-300 shadow-lg"
+            {/* Nav Links */}
+            <div className="hidden sm:flex items-center gap-6">
+              {links.map((link) => (
+                <motion.div key={link.path} className="relative">
+                  <Link
+                    to={link.path}
+                    className="text-sm font-semibold tracking-wide uppercase 
+                               text-white/70 hover:text-white transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+
+                  {location.pathname === link.path && (
+                    <motion.div
+                      layoutId="nav-underline"
+                      className="absolute -bottom-1 left-0 right-0 h-[2px] 
+                                 bg-gradient-to-r from-[#C084FC] 
+                                 via-[#E879F9] to-[#FF8C5C]"
+                    />
+                  )}
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Join Button */}
+            <motion.div
+              className="relative"
+              animate={{ y: [0, -1.5, 0] }}
+              transition={{
+                duration: 2.2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
             >
-              <span className="relative z-10">Join the Motion</span>
-
-              {/* Shimmer overlay */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-                initial={{ x: "-100%" }}
-                animate={{ x: "100%" }}
-                transition={{ repeat: Infinity, duration: 3, ease: "linear" }}
+                className="absolute inset-0 -m-1 rounded-full 
+                           bg-gradient-to-r from-[#C084FC]/40 
+                           via-[#E879F9]/30 to-[#FF8C5C]/40 
+                           blur-lg opacity-70"
+                animate={{ opacity: [0.4, 0.8, 0.3] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               />
 
-              {/* Glow aura */}
-              <div className="absolute inset-0 blur-2xl opacity-50 bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C]" />
-            </motion.button>
+              <motion.div whileHover={{ scale: 1.07 }} whileTap={{ scale: 0.96 }}>
+                <Link
+                  to="/join"
+                  className="inline-flex items-center gap-2 rounded-full 
+                             border border-white/30 
+                             bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] 
+                             px-6 py-2 text-sm font-semibold text-white 
+                             shadow-[0_12px_35px_rgba(0,0,0,0.45)]"
+                >
+                  Join the Motion
+                </Link>
+              </motion.div>
+            </motion.div>
+
           </div>
         </div>
       </div>

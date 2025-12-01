@@ -1,120 +1,100 @@
-import * as React from "react";
-import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
-import { cva } from "class-variance-authority";
-import { ChevronDown } from "lucide-react";
+// src/components/Navigation.tsx
+import { Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
-import { cn } from "@/lib/utils";
+const Navigation = () => {
+  const location = useLocation();
 
-const NavigationMenu = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Root>
->(({ className, children, ...props }, ref) => (
-  <NavigationMenuPrimitive.Root
-    ref={ref}
-    className={cn("relative z-10 flex max-w-max flex-1 items-center justify-center", className)}
-    {...props}
-  >
-    {children}
-    <NavigationMenuViewport />
-  </NavigationMenuPrimitive.Root>
-));
-NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
+  const links = [
+    { name: "Home", path: "/" },
+    { name: "About the Founder", path: "/founder" },
+  ];
 
-const NavigationMenuList = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.List>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.List>
->(({ className, ...props }, ref) => (
-  <NavigationMenuPrimitive.List
-    ref={ref}
-    className={cn("group flex flex-1 list-none items-center justify-center space-x-1", className)}
-    {...props}
-  />
-));
-NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
+  return (
+    <motion.nav
+      initial={{ y: -24, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-gradient-to-b from-black/60 via-black/30 to-transparent backdrop-blur-2xl"
+    >
+      <div className="container mx-auto px-6 py-3">
+        <div className="flex items-center justify-between gap-4">
+          {/* Logo / Brand */}
+          <Link
+            to="/"
+            className="relative text-2xl font-extrabold tracking-tight bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] bg-clip-text text-transparent"
+          >
+            Kynetiq
+            <span className="absolute -inset-x-1 -bottom-1 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent opacity-60" />
+          </Link>
 
-const NavigationMenuItem = NavigationMenuPrimitive.Item;
+          <div className="flex items-center gap-6">
+            {/* Nav Links */}
+            <div className="hidden sm:flex items-center gap-6">
+              {links.map((link) => {
+                const active = location.pathname === link.path;
+                return (
+                  <motion.div key={link.path} className="relative">
+                    <Link
+                      to={link.path}
+                      className="text-sm font-semibold tracking-wide uppercase text-white/70 hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                    {active && (
+                      <motion.div
+                        layoutId="nav-underline"
+                        className="absolute -bottom-1 left-0 right-0 h-[2px] bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] shadow-[0_0_12px_rgba(232,121,249,0.8)]"
+                      />
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
 
-const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-10 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-accent/50 data-[state=open]:bg-accent/50",
-);
+            {/* Join Button with layered animations */}
+            <motion.div
+              className="relative"
+              animate={{ y: [0, -1.5, 0] }}
+              transition={{
+                duration: 2.2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            >
+              {/* Outer glow ring */}
+              <motion.div
+                className="absolute inset-0 -m-1 rounded-full bg-gradient-to-r from-[#C084FC]/40 via-[#E879F9]/30 to-[#FF8C5C]/40 blur-lg opacity-70"
+                animate={{ opacity: [0.4, 0.8, 0.3] }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              />
 
-const NavigationMenuTrigger = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Trigger>
->(({ className, children, ...props }, ref) => (
-  <NavigationMenuPrimitive.Trigger
-    ref={ref}
-    className={cn(navigationMenuTriggerStyle(), "group", className)}
-    {...props}
-  >
-    {children}{" "}
-    <ChevronDown
-      className="relative top-[1px] ml-1 h-3 w-3 transition duration-200 group-data-[state=open]:rotate-180"
-      aria-hidden="true"
-    />
-  </NavigationMenuPrimitive.Trigger>
-));
-NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
-
-const NavigationMenuContent = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Content>
->(({ className, ...props }, ref) => (
-  <NavigationMenuPrimitive.Content
-    ref={ref}
-    className={cn(
-      "left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto",
-      className,
-    )}
-    {...props}
-  />
-));
-NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
-
-const NavigationMenuLink = NavigationMenuPrimitive.Link;
-
-const NavigationMenuViewport = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
->(({ className, ...props }, ref) => (
-  <div className={cn("absolute left-0 top-full flex justify-center")}>
-    <NavigationMenuPrimitive.Viewport
-      className={cn(
-        "origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]",
-        className,
-      )}
-      ref={ref}
-      {...props}
-    />
-  </div>
-));
-NavigationMenuViewport.displayName = NavigationMenuPrimitive.Viewport.displayName;
-
-const NavigationMenuIndicator = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Indicator>,
-  React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Indicator>
->(({ className, ...props }, ref) => (
-  <NavigationMenuPrimitive.Indicator
-    ref={ref}
-    className={cn(
-      "top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in",
-      className,
-    )}
-    {...props}
-  >
-    <div className="relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md" />
-  </NavigationMenuPrimitive.Indicator>
-));
-NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;
-
-export {
-  navigationMenuTriggerStyle,
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-  NavigationMenuContent,
-  NavigationMenuTrigger,
-  NavigationMenuLink,
-  NavigationMenuIndicator,
-  NavigationMenuViewport,
+              {/* Button itself */}
+              <motion.div
+                whileHover={{ scale: 1.07, rotate: -0.5 }}
+                whileTap={{ scale: 0.96 }}
+                className="relative"
+              >
+                <Link
+                  to="/join"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] px-6 py-2 text-sm font-semibold text-white shadow-[0_12px_35px_rgba(0,0,0,0.45)]"
+                >
+                  <span className="relative">
+                    <span className="absolute -left-3 -top-3 h-1.5 w-1.5 rounded-full bg-white" />
+                    Join the Motion
+                  </span>
+                </Link>
+              </motion.div>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+    </motion.nav>
+  );
 };
+
+export default Navigation;

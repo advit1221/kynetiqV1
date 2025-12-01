@@ -25,7 +25,7 @@ const CTA = () => {
           transition={{ delay: 0.2 }}
           className="text-white/80 text-lg mb-12 leading-relaxed"
         >
-          Join hundreds of runners across Dwarka every weekend — the Motion never stops.
+          Join runners across Dwarka every weekend — the Motion never stops.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -35,7 +35,7 @@ const CTA = () => {
           transition={{ delay: 0.3 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6"
         >
-          {/* Primary CTA */}
+          {/* Primary CTA → Join form */}
           <Link
             to="/join"
             className="px-10 py-4 rounded-2xl font-semibold shadow-lg shadow-[#C084FC]/40 transition-transform duration-300 bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] hover:scale-105"
@@ -43,9 +43,9 @@ const CTA = () => {
             Sign up for Kynetiq
           </Link>
 
-          {/* Secondary CTA */}
+          {/* Secondary CTA → Upcoming runs */}
           <Link
-            to="/join"
+            to="/upcoming-runs"
             className="px-10 py-4 rounded-2xl font-semibold border border-white/20 text-white/90 hover:text-white transition-all hover:bg-white/10 hover:scale-105 backdrop-blur-md"
           >
             View Upcoming Runs
