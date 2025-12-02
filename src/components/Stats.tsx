@@ -65,12 +65,7 @@ const Stats = () => {
           transition={{ delay: 0.6 }}
           className="text-center mt-16"
         >
-          <Link
-            to="/community"
-            className="text-lg font-medium bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] text-transparent bg-clip-text hover:opacity-80 transition-all"
-          >
-            → See upcoming community runs
-          </Link>
+          
         </motion.div>
       </div>
     </section>

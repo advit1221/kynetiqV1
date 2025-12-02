@@ -66,7 +66,7 @@ const Faq = () => {
             href="/community"
             className="text-[#E879F9] hover:text-[#FF8C5C] font-semibold transition-all"
           >
-            → Check upcoming community runs
+          
           </a>
         </motion.div>
       </div>

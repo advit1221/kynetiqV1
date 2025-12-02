@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    name: "Arnav Singh Negi",
+    name: "",
     quote: "Running with Kynetiq made running more fun.",
     vibe: "Every weekend feels like a story in motion.",
   },
@@ -12,7 +12,7 @@ const testimonials = [
     vibe: "We run, vibe, and grow together.",
   },
   {
-    name: "Samyak Kumar",
+    name: "",
     quote: "Everyone pushes each other — it’s genuine.",
     vibe: "No finish lines, just shared rhythm.",
   },
