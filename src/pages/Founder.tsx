@@ -1,4 +1,4 @@
-// src/pages/Founder.tsx
+
 import { motion } from "framer-motion";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
@@ -88,11 +88,11 @@ const Founder = () => {
                 </p>
 
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] bg-clip-text text-transparent leading-tight">
-                  Hey, I’m Advit — a 15-year-old obsessed with motion.
+                  Hey, We Are Advit and Mayank — Two 15-year-old's obsessed with motion.
                 </h1>
 
                 <p className="text-sm md:text-base text-white/80 leading-relaxed max-w-xl">
-                  I started Kynetiq because I wanted running in (Delhi) Dwarka to feel less like a solo
+                  We started Kynetiq because We wanted running in (Delhi) Dwarka to feel less like a solo
                   grind and more like a shared ritual. No complicated training plans, no pressure —
                   just a crew that shows up, runs together, and leaves with better energy than they
                   came with.
@@ -109,17 +109,17 @@ const Founder = () => {
                 >
                   <div className="mb-4">
                     <p className="text-[11px] uppercase tracking-[0.2em] text-white/60 mb-1">
-                      Founder
+                      Founders
                     </p>
-                    <p className="text-lg font-semibold text-white">Advit Dixit</p>
+                    <p className="text-lg font-semibold text-white">Advit Dixit & Mayank K Srivastava</p>
                     <p className="text-xs text-white/60">
-                      Student · Builder · Community Runner
+                      Students · Builders · Community Runners
                     </p>
                   </div>
 
                   <div className="space-y-1.5 text-xs text-white/75">
-                    <p>Based in (Delhi) Dwarka · Running & product brain.</p>
-                    <p>Kynetiq is my favourite project in motion right now.</p>
+                    <p>Based in (Delhi) Dwarka · Running & product brains.</p>
+                    <p>Kynetiq is our favourite project in motion right now.</p>
                   </div>
                 </motion.div>
 
@@ -141,13 +141,13 @@ const Founder = () => {
             custom={0.1}
             className="mb-10"
           >
-            <h2 className="text-xl md:text-2xl font-bold mb-3">Why I started Kynetiq.</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-3">Why We started Kynetiq.</h2>
             <p className="text-sm md:text-base text-white/85 mb-1.5">
-              I couldn’t find a local running space that felt welcoming, consistent, and fun —
-              so I decided to build it.
+              We couldn’t find a local running space that felt welcoming, consistent, and fun —
+              so We decided to build it.
             </p>
             <p className="text-sm md:text-base text-white/70">
-              Kynetiq is my way of turning “let’s go for a run sometime” into “see you on Sunday.”
+              Kynetiq is our way of turning “let’s go for a run sometime” into “see you on Sunday.”
             </p>
           </motion.section>
 
@@ -160,9 +160,9 @@ const Founder = () => {
             custom={0.15}
             className="mb-10"
           >
-            <h2 className="text-xl md:text-2xl font-bold mb-3">What Kynetiq means to me.</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-3">What Kynetiq means to Us.</h2>
             <p className="text-sm md:text-base text-white/85 mb-1.5">
-              For me, Kynetiq isn’t just a run club — it’s a community experiment.
+              For Us, Kynetiq isn’t just a run club — it’s a community experiment.
             </p>
             <p className="text-sm md:text-base text-white/70">
               It’s that moment when you’re tired at 1.5KM, look around, and realise you’re not alone.
@@ -198,12 +198,12 @@ const Founder = () => {
             custom={0.25}
             className="mb-10"
           >
-            <h2 className="text-xl md:text-2xl font-bold mb-4">What you can expect from me.</h2>
+            <h2 className="text-xl md:text-2xl font-bold mb-4">What you can expect from Us.</h2>
             <div className="grid gap-4 md:grid-cols-3">
               <div className="rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur-xl">
                 <p className="text-sm font-semibold mb-1.5">Consistency</p>
                 <p className="text-xs md:text-sm text-white/75">
-                  I’ll keep runs organised, on time, and clearly communicated.
+                  We’ll keep runs organised, on time, and clearly communicated.
                 </p>
               </div>
 
@@ -217,7 +217,7 @@ const Founder = () => {
               <div className="rounded-2xl border border-white/15 bg-white/5 p-4 backdrop-blur-xl">
                 <p className="text-sm font-semibold mb-1.5">Community-first</p>
                 <p className="text-xs md:text-sm text-white/75">
-                  I care more about how you feel than what your watch says.
+                  We care more about how you feel than what your watch says.
                 </p>
               </div>
             </div>
@@ -234,10 +234,10 @@ const Founder = () => {
           >
             <h2 className="text-xl md:text-2xl font-bold mb-3">Beyond the kilometres.</h2>
             <p className="text-sm md:text-base text-white/85 mb-1.5">
-              Outside Kynetiq, I’m a student, a builder, and someone who loves creating.
+              Outside Kynetiq, We're students, builders, and someone who loves creating.
             </p>
             <p className="text-sm md:text-base text-white/70">
-              If I’m not sketching routes, I’m tweaking this website or replying to DMs.
+              If We're not sketching routes, We're tweaking this website or replying to DMs.
             </p>
           </motion.section>
 
@@ -252,44 +252,44 @@ const Founder = () => {
           >
             <h2 className="text-xl md:text-2xl font-bold mb-3">Reach out anytime.</h2>
             <p className="text-sm md:text-base text-white/80 mb-4">
-              Curious? Nervous? Need a push to show up? Text me.
+              Curious? Nervous? Need a push to show up? Text Us.
             </p>
 
             <div className="grid gap-4 md:grid-cols-2">
               <div className="rounded-2xl border border-white/15 bg-white/6 p-4 backdrop-blur-xl">
                 <p className="text-xs uppercase tracking-[0.18em] text-white/60 mb-2">
-                  Founder
+                  Founders
                 </p>
-                <p className="text-sm md:text-base font-semibold text-white">Advit Dixit</p>
+                <p className="text-sm md:text-base font-semibold text-white">Advit Dixit & Mayank K Srivastava </p>
               </div>
 
               <div className="rounded-2xl border border-white/15 bg-white/6 p-4 backdrop-blur-xl text-sm text-white/85 space-y-1.5">
                 <p>
                   Phone:{" "}
                   <a href="tel:+919625325576" className="underline underline-offset-2">
-                    96253 25576
+                    96253 25576 - 9852757881
                   </a>
                 </p>
 
                 <p>
                   Instagram:{" "}
                   <a
-                    href="https://instagram.com/advit_dxt"
+                    href="https://www.instagram.com/kynetiq.runclub?igsh=YnEyZzd0bzZoMHJ3"
                     target="_blank"
                     rel="noreferrer"
                     className="underline underline-offset-2"
                   >
-                    @advit_dxt
+                    @kynetiq.runclub 
                   </a>
                 </p>
 
                 <p>
                   Email:{" "}
                   <a
-                    href="mailto:advitdixit07@gmail.com"
+                    href="mailto:kynetiqrunclub@gmail.com"
                     className="underline underline-offset-2"
                   >
-                    advitdixit07@gmail.com
+                    kynetiqrunclub@gmail.com
                   </a>
                 </p>
               </div>
