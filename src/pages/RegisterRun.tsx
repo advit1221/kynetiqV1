@@ -185,7 +185,7 @@ const RegisterRun = () => {
                   </p>
                   <p className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-[#C084FC]" />
-                    <span>9:00 AM IST</span>
+                    <span>4:00 PM IST</span>
                   </p>
                   <p className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-[#FF8C5C]" />
