@@ -247,7 +247,7 @@ const UpcomingRuns = () => {
                       reach out directly:
                     </p>
                     <p className="text-xs md:text-sm text-white/85 font-medium">
-                      Founder – Advit Dixit
+                      Founder – Advit Dixit & Mayank K  Srivastava 
                     </p>
                     <p className="text-xs md:text-sm text-white/80">
                       Phone:{" "}
@@ -258,21 +258,21 @@ const UpcomingRuns = () => {
                     <p className="text-xs md:text-sm text-white/80">
                       Instagram:{" "}
                       <a
-                        href="https://instagram.com/advit_dxt"
+                        href="https://www.instagram.com/kynetiq.runclub?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                         target="_blank"
                         rel="noreferrer"
                         className="underline underline-offset-2"
                       >
-                        @advit_dxt
+                        @kynetiq.runclub 
                       </a>
                     </p>
                     <p className="text-xs md:text-sm text-white/80">
                       Email:{" "}
                       <a
-                        href="mailto:advitdixit07@gmail.com"
+                        href="mailto:kynetiqrunclub@gmail.com"
                         className="underline underline-offset-2"
                       >
-                        advitdixit07@gmail.com
+                        kynetiqrunclub@gmail.com
                       </a>
                     </p>
                   </div>
