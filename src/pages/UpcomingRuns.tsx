@@ -100,8 +100,7 @@ const UpcomingRuns = () => {
                 {/* Run name + badge */}
                 <div className="flex items-center justify-between gap-4 mb-6">
                   <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-                    Kynetiq Trial Run 1.0
-                  </h2>
+                    Kynetiq Motion - 1                   </h2>
 
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -149,7 +148,7 @@ const UpcomingRuns = () => {
                   <p className="flex items-center gap-3">
                     <Calendar className="w-5 h-5 text-[#E879F9]" />
                     <span>
-                      <span className="font-semibold">Date:</span> 28th December (Sunday)
+                      <span className="font-semibold">Date:</span> 28th March (Saturday)
                     </span>
                   </p>
                   <p className="flex items-center gap-3">
