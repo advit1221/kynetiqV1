@@ -148,7 +148,7 @@ const UpcomingRuns = () => {
                   <p className="flex items-center gap-3">
                     <Calendar className="w-5 h-5 text-[#E879F9]" />
                     <span>
-                      <span className="font-semibold">Date:</span> 28th March (Saturday)
+                      <span className="font-semibold">Date:</span> 5th April (Sunday)
                     </span>
                   </p>
                   <p className="flex items-center gap-3">
