@@ -100,7 +100,7 @@ const UpcomingRuns = () => {
                 {/* Run name + badge */}
                 <div className="flex items-center justify-between gap-4 mb-6">
                   <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-                    Kynetiq Motion - 1                   </h2>
+                    Velocity 1                   </h2>
 
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -109,7 +109,7 @@ const UpcomingRuns = () => {
                     className="inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold bg-gradient-to-r from-[#C084FC] to-[#E879F9] shadow-lg shadow-[#C084FC]/40"
                   >
                     <Star className="w-3.5 h-3.5" />
-                    First Ever Run
+                    Exciting Run
                   </motion.div>
                 </div>
 
@@ -148,13 +148,13 @@ const UpcomingRuns = () => {
                   <p className="flex items-center gap-3">
                     <Calendar className="w-5 h-5 text-[#E879F9]" />
                     <span>
-                      <span className="font-semibold">Date:</span> 5th April (Sunday)
+                      <span className="font-semibold">Date:</span> 14th June (Sunday)
                     </span>
                   </p>
                   <p className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-[#C084FC]" />
                     <span>
-                      <span className="font-semibold">Time:</span> 4:00 PM IST (afternoon)
+                      <span className="font-semibold">Time:</span> 7:00 AM IST (Morning)
                     </span>
                   </p>
                   <p className="flex items-center gap-3">

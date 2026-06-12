@@ -151,7 +151,7 @@ const RegisterRun = () => {
             className="text-center mb-10"
           >
             <p className="inline-flex px-4 py-1 rounded-full bg-white/10 border border-white/20 text-xs tracking-[0.25em] uppercase text-white/70 mb-4">
-              Kynetiq Trial Run 1.0
+              Velocity 1
             </p>
 
             <h1 className="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-[#C084FC] via-[#E879F9] to-[#FF8C5C] text-transparent bg-clip-text">
@@ -170,22 +170,22 @@ const RegisterRun = () => {
               <div className="relative z-10">
                 <div className="flex items-center justify-between mb-4">
                   <h2 className="text-xl md:text-2xl font-semibold">
-                    Kynetiq Trial Run 1.0
+                    Velocity 1
                   </h2>
                   <div className="rounded-full px-3 py-1 text-[11px] font-semibold bg-gradient-to-r from-[#C084FC] to-[#E879F9] shadow-lg flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-emerald-300 animate-pulse" />
-                    First Ever Run
+                    Exciting Run
                   </div>
                 </div>
 
                 <div className="space-y-3 text-white/85 mb-6 text-sm md:text-[15px]">
                   <p className="flex items-center gap-3">
                     <Calendar className="w-5 h-5 text-[#E879F9]" />
-                    <span>28th December (Sunday)</span>
+                    <span>14th June (Sunday)</span>
                   </p>
                   <p className="flex items-center gap-3">
                     <Clock className="w-5 h-5 text-[#C084FC]" />
-                    <span>4:00 PM IST</span>
+                    <span>7:00 AM IST</span>
                   </p>
                   <p className="flex items-center gap-3">
                     <MapPin className="w-5 h-5 text-[#FF8C5C]" />
